@@ -1,8 +1,7 @@
-<script setup lang="ts">
-</script>
+<script setup lang="ts"></script>
 
 <template>
-  <main>
-    <h1>This is the main page</h1>
+  <main class="flex justify-center pt-4">
+    <h1 class="text-white text-2xl">This is the main page with dummies data</h1>
   </main>
 </template>
