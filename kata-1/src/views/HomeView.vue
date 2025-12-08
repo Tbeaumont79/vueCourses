@@ -18,12 +18,7 @@ onMounted(() => {
 
     <ul class="flex flex-wrap gap-x-4 p-4 justify-center w-full" v-if="recipes.length">
       <li class="pt-10" v-for="recipe in recipes" :key="recipe.id">
-        <recipe-card
-          :image="recipe.image"
-          :name="recipe.name"
-          :calories-per-serving="recipe.caloriesPerServing"
-          :difficulty="recipe.difficulty"
-        />
+        <recipe-card :recipe="recipe" />
       </li>
     </ul>
   </main>
