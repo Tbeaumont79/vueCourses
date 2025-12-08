@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { onMounted } from 'vue'
 import { useRecipes } from '@/composables/useRecipes'
+import recipeCard from '@/components/Recipes/recipe-card.vue'
 
 const { recipes, loading, error, fetchRecipes } = useRecipes()
 
@@ -17,16 +18,12 @@ onMounted(() => {
 
     <ul class="flex flex-wrap gap-x-4 p-4 justify-center w-full" v-if="recipes.length">
       <li class="pt-10" v-for="recipe in recipes" :key="recipe.id">
-        <div
-          class="w-full overflow-hidden rounded-lg bg-white shadow-sm dark:bg-gray-800/50 dark:shadow-none dark:outline dark:-outline-offset-1 dark:outline-white/10"
-        >
-          <div class="px-4 py-5 sm:p-6 flex flex-col gap-y-4">
-            <img :src="recipe.image" class="w-40 h-40 mx-auto" alt="" />
-            <h2 class="text-lg text-white font-bold">{{ recipe.name }}</h2>
-            <p class="text-white">Calories: {{ recipe.caloriesPerServing }}</p>
-            <p class="text-white">Difficulty: {{ recipe.difficulty }}</p>
-          </div>
-        </div>
+        <recipe-card
+          :image="recipe.image"
+          :name="recipe.name"
+          :calories-per-serving="recipe.caloriesPerServing"
+          :difficulty="recipe.difficulty"
+        />
       </li>
     </ul>
   </main>
